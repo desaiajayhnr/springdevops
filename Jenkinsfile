@@ -3,6 +3,10 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = "desaiajayhnr17/springdevops"
     }
+     tools {
+        maven 'Maven 3.6.3'
+        jdk 'jdk8'
+    }
     
     stages {
         stage('Initialize') {
