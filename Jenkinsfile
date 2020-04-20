@@ -4,8 +4,8 @@ pipeline {
         DOCKER_IMAGE_NAME = "desaiajayhnr17/springdevops"
     }
      tools {
-        maven 'Maven 3.6.3'
-        jdk 'jdk8'
+        maven 'M2_HOME'
+        jdk 'JAVA_HOME'
     }
     
     stages {
