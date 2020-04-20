@@ -29,6 +29,8 @@ pipeline {
             }
             steps {
                 script {
+                    sh ' echo ${USER}'
+                    sh ' echo testing'
                     app = docker.build(DOCKER_IMAGE_NAME)
                     app.inside {
                         sh 'echo building docker image'
