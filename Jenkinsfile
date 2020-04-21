@@ -38,13 +38,17 @@ pipeline {
         }
         
         stage('Docker Push') {
-            
-            sh 'echo Publishing image'
-            withCredentials([usernamePassword(credentialsId: 'dockerlogin', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
-             // some block
-                sh 'docker login -u ${dockeruser} -p ${dockerpass}'
+            steps {
+                script {
+                    
+                    sh 'echo Publishing image'
+                     withCredentials([usernamePassword(credentialsId: 'dockerlogin', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
+                    // some block
+                    sh 'docker login -u ${dockeruser} -p ${dockerpass}'
+                    }
+                    sh 'docker push desaiajayhnr17/springdevops'
+                }
             }
-            sh 'docker push desaiajayhnr17/springdevops'
         }
     }
 }
