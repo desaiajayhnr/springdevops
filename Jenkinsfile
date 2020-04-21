@@ -39,7 +39,7 @@ pipeline {
         
         stage('Docker Push') {
             
-            echo 'Publishing image'
+            sh 'echo Publishing image'
             withCredentials([usernamePassword(credentialsId: 'dockerlogin', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
              // some block
                 sh 'docker login -u ${dockeruser} -p ${dockerpass}'
